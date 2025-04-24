@@ -41,7 +41,7 @@ const MiniChart = ({ data }) => {
   };
 
   return (
-    <div className="h-10 w-24">
+    <div className="h-10 w-24 sm:w-28 md:w-32">
       <Line data={chartData} options={chartOptions} />
     </div>
   );
