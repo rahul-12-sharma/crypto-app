@@ -33,10 +33,10 @@ export const generateInitialCryptoData = () =>
         return {
             ...asset,
             price,
-            priceHistory: generatePriceHistory(price), // 💹
-            change1h: getRandomPercent(),
-            change24h: getRandomPercent(),
-            change7d: getRandomPercent(),
+            priceHistory: generatePriceHistory(price),  // ✅
+            change1h: getRandomPercent(),               // ✅
+            change24h: getRandomPercent(),              // ✅
+            change7d: getRandomPercent(),               // ✅
             marketCap: getRandomNumber(50_000_000_000, 900_000_000_000),
             volume24h: getRandomNumber(1_000_000_000, 100_000_000_000),
             circulatingSupply: getRandomNumber(1_000_000, 20_000_000),
@@ -47,18 +47,19 @@ export const generateInitialCryptoData = () =>
 export const updateCryptoData = (assets) =>
     assets.map((asset) => {
         const newPrice = asset.price + getRandomDelta(asset.price);
-        const newHistory = [...asset.priceHistory.slice(1), newPrice];
+        const newHistory = [...asset.priceHistory.slice(1), newPrice]; // ✅
 
         return {
             ...asset,
             price: newPrice,
-            priceHistory: newHistory, // keep it updated
+            priceHistory: newHistory,        // ✅ important for charts
             change1h: getRandomPercent(),
             change24h: getRandomPercent(),
             change7d: getRandomPercent(),
             volume24h: getRandomNumber(1_000_000_000, 100_000_000_000),
         };
     });
+
 
 
 
