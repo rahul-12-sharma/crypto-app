@@ -8,6 +8,8 @@ import SearchBar from './components/SearchBar'
 function App() {
   const dispatch = useDispatch();
 
+  
+
   useEffect(() => {
     const interval = setInterval(() => {
       dispatch(updateAssets());
@@ -18,11 +20,17 @@ function App() {
 
   return (
 
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-center mb-6 text-blue-600">📘 Real-Time Crypto Tracker</h1>
-      <SearchBar />
-      <div className="overflow-x-auto">
-        <CryptoTable />
+    <div className="min-h-screen dark:bg-gray-900 dark:text-red px-4 sm:px-6 lg:px-8 py-6">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-blue-600">
+          📘 Real-Time Crypto Tracker
+        </h1>
+
+        <SearchBar />
+
+        <div className="overflow-x-auto mt-4 rounded-md border dark:border-gray-700">
+          <CryptoTable />
+        </div>
       </div>
     </div>
   );
