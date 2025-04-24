@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { generateInitialCryptoData, updateCryptoData } from '../utils/dataGenerator';
 
 const initialState = {
-    assets: generateInitialCryptoData(),
-    search: '',  
+    assets: generateInitialCryptoData(),  // ✅ important!
+    search: '',
 };
-  
+
 
 const cryptoSlice = createSlice({
     name: 'crypto',
